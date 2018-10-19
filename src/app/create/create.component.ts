@@ -12,6 +12,7 @@ export class CreateComponent implements OnInit {
   constructor(private store: Store) { }
 
   addTutorial(name, url) {
+    console.log('addTutorial');
     this.store.dispatch(new AddTutorial({name: name, url: url}));
   }
 

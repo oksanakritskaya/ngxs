@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { Tutorial } from '../models/tutorial.model';
-import { TutorialState } from './../state/tutorial.state'; // We will use this shortly
+import { TutorialState } from '../state/tutorial.state'; // We will use this shortly
 import { Observable } from 'rxjs';
 import { RemoveTutorial } from '../actions/tutoral.actions';
 
@@ -15,6 +15,7 @@ import { RemoveTutorial } from '../actions/tutoral.actions';
 export class ReadComponent implements OnInit {
 
   // tutorials$: Observable<Tutorial>;
+  // (selector name)
   @Select(TutorialState.getTutorials) tutorials$: Observable<Tutorial>;
 
   constructor(private store: Store) {
@@ -22,6 +23,7 @@ export class ReadComponent implements OnInit {
   }
 
   delTutorial(name) {
+    console.log('delTutorial');
     this.store.dispatch(new RemoveTutorial(name));
   }
 
